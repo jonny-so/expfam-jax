@@ -94,13 +94,13 @@ def lds_marginals(natural_params):
 _mask_first = lambda n,d: numpy.arange(d) < n
 _mask_last = lambda n,d: numpy.arange(d) >= d-n
 
-# natural_params singleton factor N(z_0; b_0, inv(Q0))
+# singleton factor natural params N(z_0; b_0, inv(Q0))
 def _prior_natural_params(a0, Q0):
     J = -.5*Q0
     h = Q0.dot(a0)
     return h, J
 
-# natural_params for pairwise factor N(z_2; A z_1 + a; inv(Q)), with layout [z_1; z_2]
+# pairwise factor natural params N(z_2; A z_1 + a; inv(Q)), with layout [z_1; z_2]
 def _transition_natural_params(A, a, Q):
     QA = jnp.matmul(Q, A)
     Jaa, Jab, Jbb = -.5*jnp.matmul(A.T, QA), .5*QA.T, -.5*Q
