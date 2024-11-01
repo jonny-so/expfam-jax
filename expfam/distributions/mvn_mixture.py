@@ -10,8 +10,8 @@ from expfam.distributions.discrete import discrete_entropy
 from expfam.distributions.mvn import *
 from expfam.util.la import mvp, transpose
 
-GmmNaturalParams = tuple[Array, Array, Array]
-GmmMeanParams = tuple[Array, Array, Array]
+MvnMixtureNaturalParams = tuple[Array, Array, Array]
+MvnMixtureMeanParams = tuple[Array, Array, Array]
 
 def mvn_mixture_natural_from_mean(mean_params):
     p, px, pxx = mean_params
