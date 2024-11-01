@@ -10,8 +10,6 @@ from jax.scipy.special import digamma, multigammaln, polygamma
 from jax.tree_util import tree_map
 from jaxopt import implicit_diff
 
-jax.config.update("jax_enable_x64", True)
-
 def niw_natural_from_mean(mean_params):
     shape_prefix = mean_params[0].shape[:-2]
     mean_params = tree_map(lambda _: _.reshape(-1, *_.shape[len(shape_prefix):]), mean_params)
