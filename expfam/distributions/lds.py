@@ -1,6 +1,6 @@
 # linear dynamical system:
-#   z_0 ~ N(b_0; inv(Q0))
-#   z_t ~ N(B z_{t-1} + b; inv(Q))
+#   z_0 ~ N(a_0; inv(Q0))
+#   z_t ~ N(A z_{t-1} + a; inv(Q))
 
 import jax.numpy as jnp
 import numpy
