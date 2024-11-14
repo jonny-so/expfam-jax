@@ -127,9 +127,9 @@ def niw_log_partition_dual(mean_params):
     natural_params = niw_natural_from_mean(mean_params)
     return niw_dot(natural_params, mean_params) - niw_log_partition(natural_params)
 
-def niw_kl(natural_params1, natural_params2):
-    return niw_log_partition(natural_params2) - niw_log_partition(natural_params1) \
-        + niw_dot(tree_sub(natural_params1, natural_params2), niw_mean_from_natural(natural_params1))
+def niw_kl(natural_params_from, natural_params_to):
+    return niw_log_partition(natural_params_to) - niw_log_partition(natural_params_from) \
+        + niw_dot(tree_sub(natural_params_from, natural_params_to), niw_mean_from_natural(natural_params_from))
 
 def niw_in_mean_domain(mean_params):
     E_Lam = -2*mean_params[0]
