@@ -1,6 +1,8 @@
 import jax
 import jax.numpy as jnp
+import math
 import numpy as np
+from jax import vmap
 
 # inv(L*L.T)*Y
 def invcholp(L, Y):
@@ -33,3 +35,28 @@ def submatrix(x, rowmask, colmask):
 
 def isposdefh(h):
     return jax.numpy.linalg.eigh(h)[0][...,0] > 0
+
+def diagm(x):
+    *shape_prefix, D = x.shape
+    nbatches = np.prod(shape_prefix, dtype=np.int64)
+    X = vmap(jnp.diag)(x.reshape(nbatches,D))
+    return X.reshape(*shape_prefix, D, D)
+
+def diagv(X):
+    *shape_prefix, D = X.shape[:-1]
+    nbatches = np.prod(shape_prefix, dtype=np.int64)
+    V = vmap(jnp.diag)(X.reshape(nbatches,D,D))
+    return V.reshape(*shape_prefix, D)
+
+def trilm(x):
+    shape_prefix = x.shape[:-1]
+    nbatches = np.prod(shape_prefix, dtype=np.int64)
+    D = (-1 + math.isqrt(1 + 8*x.shape[-1]))//2
+    X = vmap(lambda _: jnp.zeros((D,D)).at[jnp.tril_indices(D)].set(_))(x.reshape(nbatches, -1))
+    return X.reshape(*shape_prefix, D, D)
+
+def trilv(X):
+    *shape_prefix, D = X.shape[:-1]
+    nbatches = np.prod(shape_prefix, dtype=np.int64)
+    x = vmap(lambda _: _[jnp.tril_indices(D)])(X.reshape(nbatches, D, D))
+    return x.reshape(*shape_prefix, -1)
