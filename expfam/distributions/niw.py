@@ -4,11 +4,15 @@ import jax.numpy as jnp
 from expfam.util.control_flow import bounded_while_loop
 from expfam.util.la import *
 from expfam.util.tree import *
-from jax import vmap
+from jax import vmap, Array
 from jax.lax import cond
 from jax.scipy.special import digamma, multigammaln, polygamma
 from jax.tree_util import tree_map
 from jaxopt import implicit_diff
+
+NiwNaturalParams = tuple[Array, Array, Array, Array]
+NiwMeanParams = tuple[Array, Array, Array, Array]
+NiwStandardParams = tuple[Array, Array, Array, Array]
 
 def niw_natural_from_mean(mean_params):
     shape_prefix = mean_params[0].shape[:-2]
