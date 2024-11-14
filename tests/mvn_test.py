@@ -24,6 +24,12 @@ class TestMvn():
         assert jnp.allclose(self.natural_params[0], natural_params2[0])
         assert jnp.allclose(self.natural_params[1], natural_params2[1])
 
+    def test_natural_params_standard_params_consistency(self):
+        standard_params = mvn_standard_from_natural(self.natural_params)
+        natural_params2 = mvn_natural_from_standard(standard_params)
+        assert jnp.allclose(self.natural_params[0], natural_params2[0])
+        assert jnp.allclose(self.natural_params[1], natural_params2[1])
+
     def test_log_partition_mean_params_consistency(self):
         # representation is not minimal, so symmetrize to ensure consistency
         mean_params2 = mvn_symmetrize(grad(mvn_log_partition)(self.natural_params))

@@ -16,7 +16,7 @@ def mvn_natural_from_mean(mean_params):
 
 def mvn_natural_from_standard(standard_params):
     mu, V = standard_params
-    P = -.5*jnp.linalg.inv(V)
+    P = jnp.linalg.inv(V)
     return mvp(P, mu), -.5*P
 
 def mvn_mean_from_natural(natural_params):
