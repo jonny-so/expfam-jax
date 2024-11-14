@@ -72,3 +72,10 @@ def tree_vec(tree, unvec=False):
         return tree_unflatten(treedef, flat)
     x = jnp.concatenate(list(map(partial(jnp.reshape, newshape=-1), flat)))
     return (x, _unvec) if unvec else x
+
+def tree_dim(tree, axis):
+    flat, treedef = tree_flatten(tree)
+    shapes = list(map(jnp.shape, flat))
+    dim = shapes[0][axis]
+    assert(all(map(lambda _: dim == _[axis], shapes)))
+    return dim
