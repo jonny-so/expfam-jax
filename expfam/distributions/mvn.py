@@ -1,8 +1,8 @@
 import jax
 import jax.numpy as jnp
 from jax import Array
-from expfam.util.la import invcholp, outer, submatrix, vdot, mvp, transpose
-from expfam.util.tree import tree_sub, tree_map
+from jaxutil.la import invcholp, outer, submatrix, vdot, mvp, transpose
+from jaxutil.tree import tree_sub, tree_map
 
 MvnNaturalParams = tuple[Array, Array]
 MvnMeanParams = tuple[Array, Array]

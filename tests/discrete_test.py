@@ -1,6 +1,6 @@
 import scipy.stats
 from expfam.distributions.discrete import *
-from expfam.util.random import rngcall
+from jaxutil.random import rngcall
 from functools import partial
 from jax import grad, vmap
 from jax.random import split

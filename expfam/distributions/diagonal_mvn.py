@@ -1,8 +1,8 @@
 import jax
 import jax.numpy as jnp
 from jax import Array
-from expfam.util.la import vdot
-from expfam.util.tree import tree_map, tree_sub
+from jaxutil.la import vdot
+from jaxutil.tree import tree_map, tree_sub
 
 DiagonalMvnNaturalParams = tuple[Array, Array]
 DiagonalMvnMeanParams = tuple[Array, Array]

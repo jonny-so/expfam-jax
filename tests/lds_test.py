@@ -3,8 +3,8 @@ import scipy.stats
 from expfam.distributions.lds import *
 from expfam.distributions.lds import _mask_first, _mask_last
 
-from expfam.util.la import *
-from expfam.util.random import rngcall
+from jaxutil.la import *
+from jaxutil.random import rngcall
 from jax import grad
 
 jax.config.update("jax_enable_x64", True)

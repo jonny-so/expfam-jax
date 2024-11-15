@@ -1,6 +1,6 @@
 import scipy.stats
 from expfam.distributions.diagonal_mvn import *
-from expfam.util.random import rngcall
+from jaxutil.random import rngcall
 from functools import partial
 from jax import grad, vmap
 

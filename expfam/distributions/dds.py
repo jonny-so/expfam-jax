@@ -10,7 +10,7 @@ from jax.lax import scan
 from jax.random import split
 
 from expfam.distributions.discrete import *
-from expfam.util.tree import *
+from jaxutil.tree import *
 
 DdsNaturalParams = tuple[DiscreteNaturalParams, DiscreteNaturalParams]
 DdsMeanParams = tuple[DiscreteMeanParams, DiscreteMeanParams]

@@ -1,7 +1,7 @@
 import scipy.stats
 from expfam.distributions.mvn_mixture import *
-from expfam.util.random import rngcall
-from expfam.util.la import mmp
+from jaxutil.random import rngcall
+from jaxutil.la import mmp
 from functools import partial
 from jax import grad, vmap
 from jax.random import split

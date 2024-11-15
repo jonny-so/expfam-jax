@@ -4,7 +4,7 @@ import jax.numpy as jnp
 import jax.random as jr
 from expfam.distributions.discrete import *
 from expfam.distributions.dds import *
-from expfam.util.random import rngcall
+from jaxutil.random import rngcall
 from jax import grad
 
 jax.config.update("jax_enable_x64", True)

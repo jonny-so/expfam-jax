@@ -10,7 +10,7 @@ from jax.random import split
 from typing import NamedTuple
 
 from expfam.distributions.mvn import *
-from expfam.util.tree import *
+from jaxutil.tree import *
 
 LdsNaturalParams = tuple[MvnNaturalParams, MvnNaturalParams]
 LdsMeanParams = tuple[MvnMeanParams, MvnMeanParams]

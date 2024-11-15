@@ -1,9 +1,9 @@
 # normal-inverse-Wishart distribution
 import jax
 import jax.numpy as jnp
-from expfam.util.control_flow import bounded_while_loop
-from expfam.util.la import *
-from expfam.util.tree import *
+from jaxutil.control_flow import bounded_while_loop
+from jaxutil.la import *
+from jaxutil.tree import *
 from jax import vmap, Array
 from jax.lax import cond
 from jax.scipy.special import digamma, multigammaln, polygamma

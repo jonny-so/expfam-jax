@@ -8,7 +8,7 @@ import jax.numpy as jnp
 from jax.random import split
 from expfam.distributions.discrete import discrete_entropy
 from expfam.distributions.mvn import *
-from expfam.util.la import mvp, transpose
+from jaxutil.la import mvp, transpose
 
 MvnMixtureNaturalParams = tuple[Array, Array, Array]
 MvnMixtureMeanParams = tuple[Array, Array, Array]

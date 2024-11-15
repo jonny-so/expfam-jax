@@ -2,7 +2,7 @@ import scipy.stats
 import numpy as np
 import numpy.random as npr
 from expfam.distributions.mvn import *
-from expfam.util.random import rngcall
+from jaxutil.random import rngcall
 from functools import partial
 from jax import grad, vmap
 

@@ -1,7 +1,7 @@
 import jax
 import jax.numpy as jnp
 from expfam.distributions.gamma import *
-from expfam.util.tree import tree_sub
+from jaxutil.tree import tree_sub
 
 
 def inverse_gamma_natural_from_mean(mean_params):

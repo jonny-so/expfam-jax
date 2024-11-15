@@ -2,8 +2,8 @@ import jax
 import jax.numpy as jnp
 from jax import vmap
 from jaxopt import implicit_diff
-from expfam.util.control_flow import bounded_while_loop
-from expfam.util.tree import *
+from jaxutil.control_flow import bounded_while_loop
+from jaxutil.tree import *
 
 def gamma_natural_from_mean(meanparams):
     # handle batching over leading dimensions
