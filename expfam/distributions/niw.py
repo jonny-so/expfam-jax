@@ -14,6 +14,7 @@ NiwNaturalParams = tuple[Array, Array, Array, Array]
 NiwMeanParams = tuple[Array, Array, Array, Array]
 NiwStandardParams = tuple[Array, Array, Array, Array]
 
+# method described in "Estimating the normal-inverse Wishart distribution" (https://arxiv.org/abs/2405.16088)
 def niw_natural_from_mean(mean_params):
     shape_prefix = mean_params[0].shape[:-2]
     mean_params = tree_map(lambda _: _.reshape(-1, *_.shape[len(shape_prefix):]), mean_params)
